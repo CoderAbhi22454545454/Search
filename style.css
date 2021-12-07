@@ -1,0 +1,334 @@
+* {
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="checkbox"] {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 1;
+  top: 40px;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: block;
+  width: 100%;
+  line-height: 1.6em;
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+/*Strip the ul of padding and list styling*/
+.mobile-menu ul {
+  list-style-type: none;
+  margin: 0 auto;
+  padding-left: 0;
+  text-align: right;
+  width: 100%;
+  position: absolute;
+  background: white;
+}
+
+/*Create a horizontal list with spacing*/
+.mobile-menu li {
+  display: inline-block;
+  float: left;
+  margin-right: 1px;
+}
+
+/*Style for menu links*/
+.mobile-menu li a {
+  display: block;
+  min-width: 90px;
+  text-align: center;
+  color: black;
+  text-transform: normal;
+  text-decoration: none;
+  margin-left: -5px;
+  padding: 10px 0;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.mobile-menu li a img {
+  width: 15%;
+}
+
+/*Hover state for top level links*/
+.mobile-menu li:hover a {
+  color: rgba(0, 0, 0, 0.5);
+  background-color: lightgray;
+}
+
+/*Style for dropdown links*/
+.mobile-menu li:hover ul a {
+  background: white;
+  color: black;
+  height: 40px;
+  line-height: 40px;
+}
+
+/*Hover state for dropdown links*/
+.mobile-menu li:hover .mobile-menu ul a:hover {
+  color: black;
+}
+
+/*Hide dropdown links until they are needed*/
+.mobile-menu li ul {
+  display: none;
+}
+
+/*Make dropdown links vertical*/
+.mobile-menu li ul li {
+  display: block;
+  float: none;
+}
+
+/*Prevent text wrapping*/
+.mobile-menu li ul li a {
+  width: auto;
+  min-width: 100px;
+  padding: 0 20px;
+}
+
+/*Style 'show menu' label button and hide it by default*/
+.mobile-menu .show-menu {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+  display: none;
+  cursor: pointer;
+  text-transform: normal;
+}
+
+.mobile-menu .show-menu span {
+  padding-left: 2em;
+  text-align: right;
+}
+
+/*Hide checkbox*/
+.mobile-menu input[type="checkbox"] {
+  display: none;
+}
+
+/*Show menu when invisible checkbox is checked*/
+.mobile-menu input[type="checkbox"]:checked ~ #menu {
+  display: block;
+}
+
+.mood-switcher {
+  position: absolute;
+  right: 0;
+  top: -16px;
+  z-index: 100;
+  margin-top: 1rem;
+  display: inline-block;
+  margin-right: 0.1rem;
+}
+
+.mood-switcher-btn {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAAIUAAACFAeLs/8EAAAAHdElNRQflDAIVMxL4m3D4AAABP0lEQVQoz03QMUtbARTF8V/ytEQULQ02YAYJbVOqxiiIgwp2cajgFPoFOojQrYOKiAh+guJiBxfdk0W0i4K0OCjF4linNlQJiEQQ1FqaDu8Fc6d7OYdzuP9AOF1mfNTsyMO80uoqXAdsOHUo2yBnFX3S3YQey44l7PrRYHgirUU7HdYseW7LoHreazCiD94qSckrSYOUoq+hBHFv7Kn4F90vrWvzy1qUIq7bCS40S+HaT+06nbusGx6poqpsBL998M2t907qJfuGwIRtvRGTFw/PxN14Cr44sKgHZ04jNWM6kJO2r+avY8+80+EerTImrRiPGbNgPmpMGFfQ5U5Nwp1+GzGBWb1mnUWxLZJSAlUFeXMh1FWbcuINoJPmbBkmFnGfMebIgYp7j/WZcGXV97qBJqOm5CUE/ij7bCdE9R+7O0wKFIMtsgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMS0xMi0wMlQyMTo1MTowMiswMDowMLg10ZsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjEtMTItMDJUMjE6NTE6MDIrMDA6MDDJaGknAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==");
+  background-repeat: no-repeat;
+  background-position: center left;
+  border: none;
+  width: 6rem;
+  background-color: transparent;
+  padding: 0.75rem 0rem;
+  cursor: pointer;
+}
+
+.mood-switcher-btn:hover {
+  background: #159bec;
+  cursor: pointer;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsSAAALEgHS3X78AAAEtUlEQVR4nO0b23HbMEzw9b/pBHEnaDaoOkHdCepukG5gb+Bs4E5QZwNlgigT1JmgygTooYESlARlUoTE3iW4w/kEQRQJgnjKgIjVS4ZFybUDwNIjzgzFBMCLbwHgwrs5I5TUgF1VVW/5txgUsQG867eC9AkRG49xBiilAe7Zrz2OmaCUANxzX8wYFvUC/wOUEkDrXB89jpmglADcBRcxgARRArAOWBCRNOCaL2+sPUBSbEFu8BRWVbUhVt65TcwzEWOSUDsyiNr9EeOt+WjRxUHj0VAlBgZHgfSipcabKgSNnjjGGR8hOb/oTfIIGvJuoYOdxQIMFn9U5hY9rygbgIj0kq1DpjB27zHPC/T+c+eNP3i+djZASLxVpL3WeGfY/VqZCy38TOMPYVIuAACkcoeqqj4KMlnxk6EsP1tzFKjxNyzgBhE7764/Hs3jsyDd8Wa4McYwhCQzhOwVul7yJ3hrFpq7W0NI/LU2nhhXnv2dxhO1Fo2YYIDqkMVlw+la51RsQm6SN2GVqvLeOBrR4HyupYYYoCpkCzSvBwAAWeav3o1nuOedlZZ6ybbhg8f9DGTd1x41F4x3fh/Y7Y5VdtA/syA2A9qz1577L46AEi0+GajUc8r2ZaOMRXipPVNUACKud3c9K0ZgI6tpg2oYSwrAtfaWSc6FIoRG4y0igEBEZhodBt6x0nhLCMA1fNGpaOJ7XJtgogVZbpDD29+C9MCW/mQoO/JdR07CeniflPgokFsSc2P6wxSLrx7ddac0UbScIglyBeCWnqbu8rjpd3ZbTRVAQk1N1grvkzOxRGB1vxNPRc1zqKa5EEwbAKBmJRmFW/oFgCOFtnz+NJADz1XaPllApfkCwE6s5xevp+V1/rOeOlBWcv26F4E5/n+yhGXAG3iegDNELXhyCyd/3eiCmWMM1yTGbSKIXs+Czi0i0ln6TtUddmU90PUVuzat/lesocHgLRQRD2wbtjx/CXS9RcRl34t4Ix7cjbDicgJBQzMhqEaXXebGu6GA6gUSQGrAXF96SN+frYHZBRHyFKI0/W6qQEi8r+No8AERQ94pGiyao9I2rLy7hgAAKxEKH0xG1lxNols6E27nqPEYukDpdgerS7GYrQFOjH4OAPZ1u8fdr0U/YpubBD2B4e60ImjKKlUrY8seYGs5vkcwmqQXoWWOvRfCNSuHmQoAn8tXvSaYVHCnXLy5AIQm9MbqMFZdeZy9UPtJWvEewVAQl7xrx1N9PuXZXpO6qZMsjzCBNvSfrsQ0PJe86y0L0NSYajg6EuScesWqeTLuZv6LoQ+i2NW1ke3xDWtXk+USNalE7OxO5tcaz9TotsdH2xqNGELHygeLEjMJwP3m4DjGS3iEIVQWb94ESZiL1ixJ/kTGI4TQVfuSuy+EoHWjkxozHkHDgc/kJrfSQ8heRtPK6KMQmwy5ae6NRQeI09vRwO+vxWe3ofkGIVYAfeGBavLf6Kswg8WTQf3Jrm800DwQkRb8RfQMoqtTxf42BwANp7fUUHlZf5hwcvvzXC3Igdf/DHmUecAVwIv/z1CxrtPrf4Y8yjzgCiCYIU4NRQTA6esVX15P/V3BEJSMA/owloKqMkegqqo/Tz9oy4qaTOgAAAAASUVORK5CYII=");
+  background-repeat: no-repeat;
+  background-position: center left;
+  border: none;
+  width: 6rem;
+  background-color: transparent;
+  padding: 0.75rem 0rem;
+  cursor: pointer;
+  background-size: contain;
+  background-size: 25px 25px;
+}
+
+.mood-btn {
+  background: #159bec;
+  outline: none;
+  padding: 0.75rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.mood-btn:hover {
+  background: #02446d;
+}
+
+/*Responsive Styles*/
+main {
+  width: 100vw;
+  height: 90vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.search-wrapper .logo {
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  font-weight: 900;
+  text-align: center;
+  font-family: serif;
+  text-transform: uppercase;
+}
+
+.search-wrapper .logo span.L {
+  color: #159bec;
+}
+
+.search-wrapper .logo span.O1 {
+  color: #ffbb19;
+}
+
+.search-wrapper .logo span.O2 {
+  color: #ec1598;
+}
+
+.search-wrapper .logo span.K {
+  color: #1add4a;
+}
+
+.search input[type="text"] {
+  padding: 0.5rem 0.5rem;
+  background: transparent;
+  outline: none;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 7px;
+  cursor: pointer;
+  width: 25rem;
+}
+
+.search-buttons {
+  margin-top: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0rem 1rem;
+}
+
+.search-buttons .btn1 {
+  width: 40%;
+  padding: 0.5rem 0rem;
+  background: transparent;
+  outline: none;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.btn1:hover {
+  border: 2px solid #159bec;
+}
+
+.search-buttons .btn2 {
+  width: 60%;
+  margin-left: 2rem;
+  padding: 0.5rem 0rem;
+  background: transparent;
+  outline: none;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.btn2:hover {
+  border: 2px solid #159bec;
+}
+
+.search-text {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+footer {
+  background: #efefef;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 480px) {
+  .search input[type="text"] {
+    padding: 0.7rem 0.5rem;
+    background: transparent;
+    outline: none;
+    border: 2px solid gray;
+    outline: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 22rem;
+  }
+}
+
+@media screen and (max-width: 1281px) {
+  main {
+    height: 80vh;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .mobile-menu .lines {
+    border-bottom: 15px double #0c0c0c;
+    border-top: 5px solid black;
+    content: "";
+    height: 5px;
+    padding-top: 3.5px;
+    width: 20px;
+    padding-right: 15px;
+    float: left;
+  }
+  /*Make dropdown links appear inline*/
+  .mobile-menu ul {
+    position: static;
+    display: none;
+  }
+  /*Create vertical spacing*/
+  .mobile-menu li {
+    margin-bottom: 0;
+  }
+  /*Make all menu links full width*/
+  .mobile-menu ul li {
+    margin-top: 2rem;
+    width: 90%;
+  }
+  .mobile-menu li a img {
+    width: 5%;
+    margin-right: 1rem;
+  }
+  /*Display 'show menu' link*/
+  .mobile-menu .show-menu {
+    display: block;
+  }
+  main {
+    height: 82vh;
+  }
+}
+/*# sourceMappingURL=style.css.map */
